@@ -6,6 +6,8 @@ const light = {
     details: "#9d4edd",
     bgColor: "#1e2836",
 
+    title: "#e91b35",
+
     white: "#fff",
     black: "#000",
   },

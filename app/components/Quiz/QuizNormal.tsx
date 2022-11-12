@@ -6,7 +6,7 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const Quiz = () => {
+const QuizNormal = () => {
   return (
     <Container>
       <Text>Quiz</Text>
@@ -14,4 +14,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default QuizNormal;
