@@ -1,6 +1,6 @@
-import styled from "styled-components/native";
-import { dark, light } from "../themes/Theme.styled";
-import { BtnHome } from "../utils/buttons/BtnCustom";
+import { useContext } from "react";
+import styled, { ThemeContext } from "styled-components/native";
+import BtnCustom from "../utils/buttons/BtnCustom";
 
 const Container = styled.View`
   flex: 1;
@@ -10,22 +10,26 @@ const Container = styled.View`
 `;
 
 const Home = ({ navigation }: any) => {
+  const { name, colors } = useContext(ThemeContext);
   return (
     <Container>
-      <BtnHome
+      <BtnCustom
         onPress={() => navigation.navigate("QuizEasy")}
         text="Fácil"
-        bgColor={`${dark ? dark.colors.secondary : light.colors.secondary}`}
+        bgColor={`${name === "dark" ? colors.secondary : colors.secondary}`}
+        size={15}
       />
-      <BtnHome
+      <BtnCustom
         onPress={() => navigation.navigate("QuizNormal")}
         text="Médio"
-        bgColor={`${dark ? dark.colors.details : light.colors.details}`}
+        bgColor={`${name === "dark" ? colors.details : colors.details}`}
+        size={15}
       />
-      <BtnHome
+      <BtnCustom
         onPress={() => navigation.navigate("QuizHard")}
         text="Difícil"
-        bgColor={`${dark ? dark.colors.primary : light.colors.primary}`}
+        bgColor={`${name === "dark" ? colors.primary : colors.primary}`}
+        size={15}
       />
     </Container>
   );

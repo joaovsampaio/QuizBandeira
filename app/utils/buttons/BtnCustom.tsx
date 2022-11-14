@@ -2,32 +2,33 @@ import styled from "styled-components/native";
 
 const BtnLevel = styled.Pressable`
   width: 50%;
-  padding: 15px;
   border-radius: 3px;
-  margin-bottom: 35px;
+  margin-bottom: 28px;
 `;
 
 const BtnText = styled.Text`
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 type Props = {
   text: string;
-  bgColor: string;
+  bgColor?: string;
+  size?: number;
   onPress?: any;
 };
 
-const BtnHome = ({ text, bgColor, onPress }: Props) => {
+const BtnCustom = ({ text, bgColor, size, onPress }: Props) => {
   return (
     <BtnLevel
       onPress={onPress}
       style={({ pressed }) => [
         {
           backgroundColor: bgColor,
+          padding: size,
           opacity: pressed ? 0.7 : 1,
         },
       ]}
@@ -37,4 +38,4 @@ const BtnHome = ({ text, bgColor, onPress }: Props) => {
   );
 };
 
-export { BtnHome };
+export default BtnCustom;

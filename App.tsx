@@ -25,6 +25,11 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
+
+  const HandleThemeChange = () => {
+    setSelectedTheme(selectedTheme.name === "dark" ? light : dark);
+  };
+
   return (
     <ThemeProvider theme={selectedTheme}>
       <NavigationContainer>
@@ -37,14 +42,19 @@ export default function App() {
             },
             headerTintColor: `${dark ? dark.colors.title : light.colors.title}`,
             headerTitleStyle: {
-              fontWeight: "bold",
+              fontFamily: "BebasNeue",
+              fontSize: 30,
             },
           }}
         >
           <Stack.Screen
             name="Home"
             component={Home}
-            options={{ headerTitle: () => <Header /> }}
+            options={{
+              headerTitle: () => (
+                <Header HandleThemeChange={HandleThemeChange} />
+              ),
+            }}
           />
           <Stack.Screen
             name="QuizEasy"
