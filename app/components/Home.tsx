@@ -45,7 +45,6 @@ const Home = ({ navigation }: any) => {
         <BtnCustom
           onPress={() => navigation.navigate("QuizEasy")}
           text="Fácil"
-          bgColor={`${name === "dark" ? colors.secondary : colors.secondary}`}
           txAlign="center"
           size={15}
         />

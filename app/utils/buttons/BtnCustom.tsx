@@ -1,4 +1,5 @@
-import styled from "styled-components/native";
+import { useContext } from "react";
+import styled, { ThemeContext } from "styled-components/native";
 
 const BtnLevel = styled.Pressable`
   border-radius: 3px;
@@ -22,12 +23,14 @@ type Props = {
 };
 
 const BtnCustom = ({ text, bgColor, size, width, txAlign, onPress }: Props) => {
+  const { name, colors } = useContext(ThemeContext);
+  const btnOptionsColor = name === "dark" ? colors.secondary : colors.secondary;
   return (
     <BtnLevel
       onPress={onPress}
       style={({ pressed }) => [
         {
-          backgroundColor: bgColor,
+          backgroundColor: bgColor || btnOptionsColor,
           padding: size,
           opacity: pressed ? 0.7 : 1,
           width: width || "50%",

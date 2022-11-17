@@ -12,7 +12,6 @@ const Container = styled.View`
 
 const QuizEasy = ({ navigation }: any) => {
   const { name, colors } = useContext(ThemeContext);
-  const btnOptionsColor = name === "dark" ? colors.secondary : colors.secondary;
 
   const [question, setQuestion] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState("");
@@ -53,25 +52,21 @@ const QuizEasy = ({ navigation }: any) => {
             <BtnCustom
               text={`A - ${QuestionsEasy[question].optionA}`}
               onPress={() => setCurrentAnswer("A")}
-              bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
               text={`B - ${QuestionsEasy[question].optionB}`}
               onPress={() => setCurrentAnswer("B")}
-              bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
               text={`C - ${QuestionsEasy[question].optionC}`}
               onPress={() => setCurrentAnswer("C")}
-              bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
               text={`D - ${QuestionsEasy[question].optionD}`}
               onPress={() => setCurrentAnswer("D")}
-              bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
