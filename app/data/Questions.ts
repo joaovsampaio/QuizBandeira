@@ -39,7 +39,7 @@ export const QuestionsEasy = [
     imgFlag: require("../assets/img_facil/bnd_facil_5.png"),
     optionA: "Holanda",
     optionB: "Inglaterra",
-    optionC: "Polõnia",
+    optionC: "Polônia",
     optionD: "Noruega",
     answer: "B",
     tip: "Local de nascimento de Shakespeare e dos Beatles",

@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
-import { dark, light } from "../../themes/Theme.styled";
 
 import { QuestionsEasy } from "../../data/Questions";
 
@@ -11,7 +10,7 @@ const Container = styled.View`
   flex: 1;
 `;
 
-const QuizEasy = () => {
+const QuizEasy = ({ navigation }: any) => {
   const { name, colors } = useContext(ThemeContext);
   const btnOptionsColor = name === "dark" ? colors.secondary : colors.secondary;
 
@@ -21,25 +20,27 @@ const QuizEasy = () => {
     name === "dark" ? colors.black : colors.black
   );
 
-  const isRight = () => {
-    if (QuestionsEasy[question].answer === currentAnswer) {
+  const isRightorNot = () => {
+    if (QuestionsEasy[question].answer === currentAnswer && question < 4) {
       setQuestion(question + 1);
+      setCurrentAnswer("");
+    } else if (
+      QuestionsEasy[question].answer === currentAnswer &&
+      question === 4
+    ) {
+      navigation.navigate("GameOver");
+    } else {
+      setQuestion(0);
     }
   };
 
   useEffect(() => {
-    if (currentAnswer != QuestionsEasy[question].answer) {
-      setQuestion(0);
-    }
-  }, [currentAnswer]);
-
-  useEffect(() => {
-    if (QuestionsEasy[question].answer === currentAnswer) {
+    if (currentAnswer) {
       setBtnNext(name === "dark" ? colors.misc : colors.misc);
     } else {
       setBtnNext(name === "dark" ? colors.black : colors.black);
     }
-  }, [isRight]);
+  }, [currentAnswer]);
 
   return (
     <Container>
@@ -50,32 +51,36 @@ const QuizEasy = () => {
         btnContainer={
           <>
             <BtnCustom
-              text={QuestionsEasy[question].optionA}
+              text={`A - ${QuestionsEasy[question].optionA}`}
               onPress={() => setCurrentAnswer("A")}
               bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
-              text={QuestionsEasy[question].optionB}
+              text={`B - ${QuestionsEasy[question].optionB}`}
               onPress={() => setCurrentAnswer("B")}
               bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
-              text={QuestionsEasy[question].optionC}
+              text={`C - ${QuestionsEasy[question].optionC}`}
               onPress={() => setCurrentAnswer("C")}
               bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
-              text={QuestionsEasy[question].optionD}
+              text={`D - ${QuestionsEasy[question].optionD}`}
               onPress={() => setCurrentAnswer("D")}
               bgColor={`${btnOptionsColor}`}
               size={8}
             />
             <BtnCustom
-              text={question === 4 ? "Finalizar" : "Avançar"}
-              onPress={() => isRight()}
+              text={
+                question === 4
+                  ? `Finalizar - ${currentAnswer}`
+                  : `Resposta - ${currentAnswer}`
+              }
+              onPress={() => isRightorNot()}
               bgColor={`${btnNext}`}
               size={12}
             />

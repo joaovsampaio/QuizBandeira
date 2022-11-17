@@ -1,13 +1,13 @@
 const light = {
   name: "light",
   colors: {
-    primary: "#5a189a",
-    secondary: "#7b2cbf",
-    details: "#9d4edd",
-    misc: "#198754",
-    bgColor: "#1e2836",
+    primary: "#b56576",
+    secondary: "#6d597a",
+    details: "#355070",
+    misc: "#e56b6f",
+    bgColor: "#efcfe3",
 
-    title: "#e91b35",
+    title: "#f25c54",
 
     white: "#e4e4e4",
     black: "#000",

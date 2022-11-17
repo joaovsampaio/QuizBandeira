@@ -1,4 +1,4 @@
-import { Alert, Image, ImageSourcePropType } from "react-native";
+import { Alert, Image, ImageSourcePropType, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styled from "styled-components/native";
 
@@ -58,7 +58,14 @@ const QuizTeamplate = ({
       <Wrapped>
         <QuizHeader>
           <Title>Determine a Bandeira: {currQuestion}/5</Title>
-          <BtnTip onPress={() => Alert.alert("Dica!", `${btnTip}`)}>
+          <BtnTip
+            onPress={() => Alert.alert("Dica!", `${btnTip}`)}
+            style={({ pressed }) => [
+              {
+                opacity: pressed ? 0.7 : 1,
+              },
+            ]}
+          >
             <Ionicons name="information" size={26} color="white" />
           </BtnTip>
         </QuizHeader>

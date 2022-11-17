@@ -12,6 +12,7 @@ import Home from "./app/components/Home";
 import QuizEasy from "./app/components/Quiz/QuizEasy";
 import QuizNormal from "./app/components/Quiz/QuizNormal";
 import QuizHard from "./app/components/Quiz/QuizHard";
+import GameOver from "./app/components/GameOver";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,10 +38,14 @@ export default function App() {
           screenOptions={{
             headerStyle: {
               backgroundColor: `${
-                dark ? dark.colors.bgColor : light.colors.bgColor
+                selectedTheme === dark
+                  ? dark.colors.bgColor
+                  : light.colors.bgColor
               }`,
             },
-            headerTintColor: `${dark ? dark.colors.title : light.colors.title}`,
+            headerTintColor: `${
+              selectedTheme === dark ? dark.colors.title : light.colors.title
+            }`,
             headerTitleStyle: {
               fontFamily: "BebasNeue",
               fontSize: 30,
@@ -75,6 +80,14 @@ export default function App() {
             component={QuizHard}
             options={{
               title: "Quiz (Difícil)",
+            }}
+          />
+          <Stack.Screen
+            name="GameOver"
+            component={GameOver}
+            options={{
+              title: "Fim de Jogo",
+              headerBackVisible: false,
             }}
           />
         </Stack.Navigator>
