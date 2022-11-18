@@ -11,6 +11,7 @@ const light = {
 
     white: "#e4e4e4",
     black: "#000",
+    reversebw: "#000",
   },
 };
 
@@ -27,6 +28,7 @@ const dark = {
 
     white: "#e4e4e4",
     black: "#000",
+    reversebw: "#e4e4e4",
   },
 };
 

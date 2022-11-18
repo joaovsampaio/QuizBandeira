@@ -11,13 +11,11 @@ const Container = styled.View`
 `;
 
 const QuizEasy = ({ navigation }: any) => {
-  const { name, colors } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   const [question, setQuestion] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState("");
-  const [btnNext, setBtnNext] = useState(
-    name === "dark" ? colors.black : colors.black
-  );
+  const [btnNext, setBtnNext] = useState(colors.black);
 
   const isRightorNot = () => {
     if (QuestionsEasy[question].answer === currentAnswer && question < 4) {
@@ -35,9 +33,9 @@ const QuizEasy = ({ navigation }: any) => {
 
   useEffect(() => {
     if (currentAnswer) {
-      setBtnNext(name === "dark" ? colors.misc : colors.misc);
+      setBtnNext(colors.misc);
     } else {
-      setBtnNext(name === "dark" ? colors.black : colors.black);
+      setBtnNext(colors.black);
     }
   }, [currentAnswer]);
 
@@ -76,7 +74,8 @@ const QuizEasy = ({ navigation }: any) => {
                   : `Resposta - ${currentAnswer}`
               }
               onPress={() => isRightorNot()}
-              bgColor={`${btnNext}`}
+              disabled={currentAnswer ? false : true}
+              bgColor={btnNext}
               size={12}
             />
           </>

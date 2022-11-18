@@ -15,19 +15,29 @@ const BtnText = styled.Text`
 
 type Props = {
   text: string;
+  onPress?: any;
+  disabled?: boolean;
   bgColor?: string;
   size?: number;
   width?: number;
   txAlign?: any;
-  onPress?: any;
 };
 
-const BtnCustom = ({ text, bgColor, size, width, txAlign, onPress }: Props) => {
-  const { name, colors } = useContext(ThemeContext);
-  const btnOptionsColor = name === "dark" ? colors.secondary : colors.secondary;
+const BtnCustom = ({
+  text,
+  onPress,
+  disabled,
+  bgColor,
+  size,
+  width,
+  txAlign,
+}: Props) => {
+  const { colors } = useContext(ThemeContext);
+  const btnOptionsColor = colors.secondary;
   return (
     <BtnLevel
       onPress={onPress}
+      disabled={disabled || false}
       style={({ pressed }) => [
         {
           backgroundColor: bgColor || btnOptionsColor,

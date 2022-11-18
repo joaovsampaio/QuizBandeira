@@ -7,6 +7,7 @@ const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.bgColor};
 `;
 
 const Congratulations = styled.Text`
@@ -19,11 +20,11 @@ const Congratulations = styled.Text`
 const SubCongratulations = styled.Text`
   text-align: center;
   margin-bottom: 20px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.reversebw};
 `;
 
 const GameOver = ({ navigation }: any) => {
-  const { name, colors } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
 
   useEffect(() => {
     function handleBackButton() {
@@ -45,7 +46,7 @@ const GameOver = ({ navigation }: any) => {
       <BtnCustom
         text="Voltar ao menu"
         onPress={() => navigation.navigate("Home")}
-        bgColor={`${name === "dark" ? colors.misc : colors.misc}`}
+        bgColor={colors.misc}
         txAlign="center"
         size={10}
       />

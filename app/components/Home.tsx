@@ -27,11 +27,11 @@ const DifficultyContainer = styled.View`
 const DifficultyText = styled.Text`
   font-size: 20px;
   margin-bottom: 20px;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.reversebw};
 `;
 
 const Home = ({ navigation }: any) => {
-  const { name, colors } = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
   return (
     <Container>
       <WelcomeContainer
@@ -51,14 +51,14 @@ const Home = ({ navigation }: any) => {
         <BtnCustom
           onPress={() => navigation.navigate("QuizNormal")}
           text="Médio"
-          bgColor={`${name === "dark" ? colors.details : colors.details}`}
+          bgColor={colors.details}
           txAlign="center"
           size={15}
         />
         <BtnCustom
           onPress={() => navigation.navigate("QuizHard")}
           text="Difícil"
-          bgColor={`${name === "dark" ? colors.primary : colors.primary}`}
+          bgColor={colors.primary}
           txAlign="center"
           size={15}
         />

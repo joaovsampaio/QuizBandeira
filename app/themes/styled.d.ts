@@ -14,6 +14,7 @@ declare module "styled-components/native" {
 
       white: string;
       black: string;
+      reversebw: string;
     };
   }
 }
