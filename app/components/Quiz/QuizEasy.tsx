@@ -17,14 +17,13 @@ const QuizEasy = ({ navigation }: any) => {
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [btnNext, setBtnNext] = useState(colors.black);
 
+  const rightAnswer = QuestionsEasy[question].answer === currentAnswer;
+
   const isRightorNot = () => {
-    if (QuestionsEasy[question].answer === currentAnswer && question < 4) {
+    if (rightAnswer && question < 4) {
       setQuestion(question + 1);
       setCurrentAnswer("");
-    } else if (
-      QuestionsEasy[question].answer === currentAnswer &&
-      question === 4
-    ) {
+    } else if (rightAnswer && question === 4) {
       navigation.navigate("GameOver");
     } else {
       setQuestion(0);
