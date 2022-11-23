@@ -18,7 +18,8 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
-    BebasNeue: require("./app/assets/fonts/BebasNeue-Regular.ttf"),
+    RobotoBold: require("./app/assets/fonts/Roboto-Bold.ttf"),
+    RobotoLight: require("./app/assets/fonts/Roboto-Light.ttf"),
   });
 
   const [selectedTheme, setSelectedTheme] = useState(dark);
@@ -47,7 +48,7 @@ export default function App() {
               selectedTheme === dark ? dark.colors.title : light.colors.title
             }`,
             headerTitleStyle: {
-              fontFamily: "BebasNeue",
+              fontFamily: "RobotoBold",
               fontSize: 30,
             },
           }}

@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { Alert } from "react-native";
 import styled, { ThemeContext } from "styled-components/native";
 
 import { QuestionsEasy } from "../../data/Questions";
@@ -19,6 +20,15 @@ const QuizEasy = ({ navigation }: any) => {
 
   const rightAnswer = QuestionsEasy[question].answer === currentAnswer;
 
+  const alertWrong = () =>
+    Alert.alert("Bandeira Errada", "Tente usar uma dica!", [
+      {
+        text: "Voltar ao Menu",
+        onPress: () => navigation.navigate("Home"),
+      },
+      { text: "Recomeçar", onPress: () => setQuestion(0) },
+    ]);
+
   const isRightorNot = () => {
     if (rightAnswer && question < 4) {
       setQuestion(question + 1);
@@ -26,7 +36,8 @@ const QuizEasy = ({ navigation }: any) => {
     } else if (rightAnswer && question === 4) {
       navigation.navigate("GameOver");
     } else {
-      setQuestion(0);
+      alertWrong();
+      setCurrentAnswer("");
     }
   };
 
@@ -70,11 +81,12 @@ const QuizEasy = ({ navigation }: any) => {
               text={
                 question === 4
                   ? `Finalizar - ${currentAnswer}`
-                  : `Resposta - ${currentAnswer}`
+                  : `Confirme - ${currentAnswer}`
               }
               onPress={() => isRightorNot()}
               disabled={currentAnswer ? false : true}
               bgColor={btnNext}
+              txAlign="center"
               size={12}
             />
           </>

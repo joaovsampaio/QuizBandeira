@@ -7,13 +7,14 @@ const Container = styled.View`
   background-color: ${({ theme }) => theme.colors.bgColor};
 `;
 
-const WelcomeContainer = styled.ImageBackground`
+const WelcomeContainer = styled.View`
   flex: 0.5;
   justify-content: center;
 `;
 
 const WelcomeText = styled.Text`
-  font-size: 40px;
+  font-size: 50px;
+  font-family: "RobotoBold";
   text-align: center;
   color: ${({ theme }) => theme.colors.primary};
 `;
@@ -26,6 +27,7 @@ const DifficultyContainer = styled.View`
 
 const DifficultyText = styled.Text`
   font-size: 20px;
+  font-family: "RobotoLight";
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.reversebw};
 `;
@@ -34,10 +36,7 @@ const Home = ({ navigation }: any) => {
   const { colors } = useContext(ThemeContext);
   return (
     <Container>
-      <WelcomeContainer
-        source={require("../assets/mapa_mundi.png")}
-        resizeMode="cover"
-      >
+      <WelcomeContainer>
         <WelcomeText>Bem Vindo(a)!</WelcomeText>
       </WelcomeContainer>
       <DifficultyContainer>

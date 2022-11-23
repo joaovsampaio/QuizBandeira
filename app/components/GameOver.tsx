@@ -12,12 +12,14 @@ const Container = styled.View`
 
 const Congratulations = styled.Text`
   font-size: 30px;
+  font-family: "RobotoBold";
   text-align: center;
   color: ${({ theme }) => theme.colors.details};
   margin-bottom: 20px;
 `;
 
 const SubCongratulations = styled.Text`
+  font-family: "RobotoLight";
   text-align: center;
   margin-bottom: 20px;
   color: ${({ theme }) => theme.colors.reversebw};

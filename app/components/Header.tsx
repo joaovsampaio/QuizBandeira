@@ -9,13 +9,13 @@ const Container = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0 30px;
+  margin: 0 20px;
 `;
 
 const Logo = styled.Text`
   color: ${({ theme }) => theme.colors.title};
   font-size: 40px;
-  font-family: "BebasNeue";
+  font-family: "RobotoBold";
 `;
 
 const ThemeSwitcher = styled.View`
