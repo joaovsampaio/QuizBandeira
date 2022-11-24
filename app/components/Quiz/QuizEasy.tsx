@@ -5,6 +5,7 @@ import styled, { ThemeContext } from "styled-components/native";
 import { QuestionsEasy } from "../../data/Questions";
 
 import BtnCustom from "../../UI/BtnCustom";
+import { isRightOrNot } from "../../utils/isRightOrNot";
 import QuizTeamplate from "./QuizTemplate";
 
 const Container = styled.View`
@@ -22,15 +23,13 @@ const QuizEasy = ({ navigation }: any) => {
   const questionState = QuestionsEasy[question];
 
   const isRightorNot = () => {
-    if (rightAnswer && question < 4) {
-      setQuestion(question + 1);
-      setCurrentAnswer("");
-    } else if (rightAnswer && question === 4) {
-      navigation.navigate("GameOver");
-    } else {
-      navigation.navigate("ModalCustom");
-      setCurrentAnswer("");
-    }
+    isRightOrNot({
+      rightAnswer,
+      question,
+      setQuestion,
+      setCurrentAnswer,
+      navigation,
+    });
   };
 
   useEffect(() => {

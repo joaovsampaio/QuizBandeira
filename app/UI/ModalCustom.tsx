@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import Modal from "react-native-modal";
 import styled, { ThemeContext } from "styled-components/native";
-import BtnCustom from "../UI/BtnCustom";
+import BtnCustom from "./BtnCustom";
 
 const Container = styled.View`
   flex: 1;

@@ -13,7 +13,7 @@ import QuizEasy from "./app/components/quiz/QuizEasy";
 import QuizNormal from "./app/components/quiz/QuizNormal";
 import QuizHard from "./app/components/quiz/QuizHard";
 import GameOver from "./app/components/GameOver";
-import ModalCustom from "./app/utils/ModalCustom";
+import ModalCustom from "./app/UI/ModalCustom";
 
 const Stack = createNativeStackNavigator();
 

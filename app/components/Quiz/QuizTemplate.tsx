@@ -1,6 +1,7 @@
-import { Alert, Image, ImageSourcePropType, Text } from "react-native";
+import { Alert, Image, ImageSourcePropType } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styled from "styled-components/native";
+import { ReactNode } from "react";
 
 const Container = styled.View`
   flex: 1;
@@ -42,9 +43,9 @@ const StyledImage = styled(Image)`
 
 type Props = {
   flagImg: ImageSourcePropType | undefined;
-  btnTip: any;
+  btnTip: string;
   btnContainer: any;
-  currQuestion: any;
+  currQuestion: ReactNode;
 };
 
 const QuizTeamplate = ({
