@@ -1,6 +1,6 @@
 export const QuestionsEasy = [
   {
-    imgFlag: require("../assets/img_facil/bnd_facil_1.png"),
+    imgFlag: require("../assets/img_easy/bnd_easy_1.png"),
     optionA: "EUA",
     optionB: "Argentina",
     optionC: "Brasil",
@@ -9,7 +9,7 @@ export const QuestionsEasy = [
     tip: "É o único Penta Campeão da Copa do Mundo",
   },
   {
-    imgFlag: require("../assets/img_facil/bnd_facil_2.png"),
+    imgFlag: require("../assets/img_easy/bnd_easy_2.png"),
     optionA: "México",
     optionB: "Itália",
     optionC: "China",
@@ -18,7 +18,7 @@ export const QuestionsEasy = [
     tip: "Conhecido pela gastronomia apimentada",
   },
   {
-    imgFlag: require("../assets/img_facil/bnd_facil_3.png"),
+    imgFlag: require("../assets/img_easy/bnd_easy_3.png"),
     optionA: "França",
     optionB: "Egito",
     optionC: "Austrália",
@@ -27,7 +27,7 @@ export const QuestionsEasy = [
     tip: "O idioma oficial é tanto o inglês quanto o francês",
   },
   {
-    imgFlag: require("../assets/img_facil/bnd_facil_4.png"),
+    imgFlag: require("../assets/img_easy/bnd_easy_4.png"),
     optionA: "Uruguai",
     optionB: "Cuba",
     optionC: "Japão",
@@ -36,7 +36,7 @@ export const QuestionsEasy = [
     tip: "A capital, é conhecida por seus arranha-céus, lojas e pela cultura pop",
   },
   {
-    imgFlag: require("../assets/img_facil/bnd_facil_5.png"),
+    imgFlag: require("../assets/img_easy/bnd_easy_5.png"),
     optionA: "Holanda",
     optionB: "Inglaterra",
     optionC: "Polônia",
@@ -46,6 +46,98 @@ export const QuestionsEasy = [
   },
 ];
 
-export const QuestionsNormal = [{}, {}, {}, {}, {}];
+export const QuestionsNormal = [
+  {
+    imgFlag: require("../assets/img_normal/bnd_normal_1.png"),
+    optionA: "Peru",
+    optionB: "Turquia",
+    optionC: "Canadá",
+    optionD: "China",
+    answer: "B",
+    tip: "Se estende do leste da Europa ao oeste da Ásia",
+  },
+  {
+    imgFlag: require("../assets/img_normal/bnd_normal_2.png"),
+    optionA: "Itália",
+    optionB: "Nigéria",
+    optionC: "México",
+    optionD: "Hungria",
+    answer: "D",
+    tip: "A capital é dividida ao meio pelo rio Danúbio",
+  },
+  {
+    imgFlag: require("../assets/img_normal/bnd_normal_3.png"),
+    optionA: "Argélia",
+    optionB: "Tailândia",
+    optionC: "Holanda",
+    optionD: "Egito",
+    answer: "A",
+    tip: "Maior país do continente africano",
+  },
+  {
+    imgFlag: require("../assets/img_normal/bnd_normal_4.png"),
+    optionA: "URSS",
+    optionB: "Austria",
+    optionC: "Peru",
+    optionD: "Polônia",
+    answer: "B",
+    tip: "Entre seus habitantes famosos do passado, estão Mozart, Strauss e Freud",
+  },
+  {
+    imgFlag: require("../assets/img_normal/bnd_normal_5.png"),
+    optionA: "Suécia",
+    optionB: "Islândia",
+    optionC: "Gibraltar",
+    optionD: "Finlândia",
+    answer: "D",
+    tip: "É o país mais feliz do mundo",
+  },
+];
 
-export const QuestionsHard = [{}, {}, {}, {}, {}];
+export const QuestionsHard = [
+  {
+    imgFlag: require("../assets/img_hard/bnd_hard_1.png"),
+    optionA: "Indonésia",
+    optionB: "Áustria",
+    optionC: "Polõnia",
+    optionD: "Peru",
+    answer: "A",
+    tip: "Abriga centenas de grupos étnicos que falam vários idiomas",
+  },
+  {
+    imgFlag: require("../assets/img_hard/bnd_hard_2.png"),
+    optionA: "Alemanha",
+    optionB: "Equador",
+    optionC: "Colômbia",
+    optionD: "Venezuela",
+    answer: "B",
+    tip: "Sua paisagem diversificada abrange a floresta amazônica, as montanhas andinas e as Ilhas Galápagos, ricas em vida selvagem.",
+  },
+  {
+    imgFlag: require("../assets/img_hard/bnd_hard_3.png"),
+    optionA: "Noruegua",
+    optionB: "Suécia",
+    optionC: "Islândia",
+    optionD: "Dinamarca",
+    answer: "C",
+    tip: "Tem uma paisagem exuberante, com vulcões, gêiseres, fontes termais e campos de lava",
+  },
+  {
+    imgFlag: require("../assets/img_hard/bnd_hard_4.png"),
+    optionA: "Polônia",
+    optionB: "Bahrein",
+    optionC: "Catar",
+    optionD: "URSS",
+    answer: "B",
+    tip: "Está no centro das principais rotas comerciais desde a antiguidade",
+  },
+  {
+    imgFlag: require("../assets/img_hard/bnd_hard_5.png"),
+    optionA: "Omã",
+    optionB: "Egito",
+    optionC: "Jordânia",
+    optionD: "Kuwait",
+    answer: "D",
+    tip: "A capital é conhecida por sua arquitetura moderna, que inclui arranha-céus e as incríveis torres de água",
+  },
+];

@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import { Alert } from "react-native";
 import styled, { ThemeContext } from "styled-components/native";
 
 import { QuestionsEasy } from "../../data/Questions";

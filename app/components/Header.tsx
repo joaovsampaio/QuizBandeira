@@ -23,11 +23,7 @@ const ThemeSwitcher = styled.View`
   align-items: center;
 `;
 
-type Props = {
-  HandleThemeChange: any;
-};
-
-const Header = ({ HandleThemeChange }: Props) => {
+const Header = ({ HandleThemeChange }: any) => {
   const { name, colors } = useContext(ThemeContext);
   const [sunColor, setSunColor] = useState("");
   const [moonColor, setMoonColor] = useState("");
