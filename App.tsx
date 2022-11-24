@@ -9,10 +9,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Header from "./app/components/Header";
 import AppLoading from "./app/components/AppLoading";
 import Home from "./app/components/Home";
-import QuizEasy from "./app/components/Quiz/QuizEasy";
-import QuizNormal from "./app/components/Quiz/QuizNormal";
-import QuizHard from "./app/components/Quiz/QuizHard";
+import QuizEasy from "./app/components/quiz/QuizEasy";
+import QuizNormal from "./app/components/quiz/QuizNormal";
+import QuizHard from "./app/components/quiz/QuizHard";
 import GameOver from "./app/components/GameOver";
+import ModalCustom from "./app/utils/ModalCustom";
 
 const Stack = createNativeStackNavigator();
 
@@ -90,6 +91,11 @@ export default function App() {
               title: "Fim de Jogo",
               headerBackVisible: false,
             }}
+          />
+          <Stack.Screen
+            name="ModalCustom"
+            component={ModalCustom}
+            options={{ headerShown: false }}
           />
         </Stack.Navigator>
       </NavigationContainer>

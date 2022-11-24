@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
-import BtnCustom from "../utils/buttons/BtnCustom";
+import BtnCustom from "../UI/BtnCustom";
 
 const Container = styled.View`
   flex: 1;

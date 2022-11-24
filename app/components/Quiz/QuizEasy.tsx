@@ -4,7 +4,7 @@ import styled, { ThemeContext } from "styled-components/native";
 
 import { QuestionsEasy } from "../../data/Questions";
 
-import BtnCustom from "../../utils/buttons/BtnCustom";
+import BtnCustom from "../../UI/BtnCustom";
 import QuizTeamplate from "./QuizTemplate";
 
 const Container = styled.View`
@@ -19,15 +19,7 @@ const QuizEasy = ({ navigation }: any) => {
   const [btnNext, setBtnNext] = useState(colors.black);
 
   const rightAnswer = QuestionsEasy[question].answer === currentAnswer;
-
-  const alertWrong = () =>
-    Alert.alert("Bandeira Errada", "Tente usar uma dica!", [
-      {
-        text: "Voltar ao Menu",
-        onPress: () => navigation.navigate("Home"),
-      },
-      { text: "Recomeçar", onPress: () => setQuestion(0) },
-    ]);
+  const questionState = QuestionsEasy[question];
 
   const isRightorNot = () => {
     if (rightAnswer && question < 4) {
@@ -36,7 +28,7 @@ const QuizEasy = ({ navigation }: any) => {
     } else if (rightAnswer && question === 4) {
       navigation.navigate("GameOver");
     } else {
-      alertWrong();
+      navigation.navigate("ModalCustom");
       setCurrentAnswer("");
     }
   };
@@ -52,28 +44,28 @@ const QuizEasy = ({ navigation }: any) => {
   return (
     <Container>
       <QuizTeamplate
-        flagImg={QuestionsEasy[question].imgFlag}
+        flagImg={questionState.imgFlag}
         currQuestion={question + 1}
-        btnTip={QuestionsEasy[question].tip}
+        btnTip={questionState.tip}
         btnContainer={
           <>
             <BtnCustom
-              text={`A - ${QuestionsEasy[question].optionA}`}
+              text={`A - ${questionState.optionA}`}
               onPress={() => setCurrentAnswer("A")}
               size={8}
             />
             <BtnCustom
-              text={`B - ${QuestionsEasy[question].optionB}`}
+              text={`B - ${questionState.optionB}`}
               onPress={() => setCurrentAnswer("B")}
               size={8}
             />
             <BtnCustom
-              text={`C - ${QuestionsEasy[question].optionC}`}
+              text={`C - ${questionState.optionC}`}
               onPress={() => setCurrentAnswer("C")}
               size={8}
             />
             <BtnCustom
-              text={`D - ${QuestionsEasy[question].optionD}`}
+              text={`D - ${questionState.optionD}`}
               onPress={() => setCurrentAnswer("D")}
               size={8}
             />
