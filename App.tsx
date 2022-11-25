@@ -16,6 +16,7 @@ import QuizHard from "./app/components/quiz/QuizHard";
 import GameOver from "./app/components/GameOver";
 import ModalCustom from "./app/UI/ModalCustom";
 import { Alert } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +63,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={selectedTheme}>
+      <StatusBar style="light" />
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
