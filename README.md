@@ -5,6 +5,7 @@ O QuizBandeira é um desafio, onde o usuário deve acertar dentre 4 opções a b
 ## O projeto utiliza:
 
 - React Native
+- TypeScript
 - Styled-Components
 - React Navigation
 
