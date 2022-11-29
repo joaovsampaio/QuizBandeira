@@ -1,10 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
-
 type Props = {
   rightAnswer: boolean;
   question: number;
-  setQuestion: Dispatch<SetStateAction<number>>;
-  setCurrentAnswer: Dispatch<SetStateAction<string>>;
+  setQuestion: (question: number) => void;
+  setCurrentAnswer: (answer: string) => void;
   navigation: any;
 };
 

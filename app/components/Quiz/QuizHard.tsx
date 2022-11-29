@@ -1,7 +1,12 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
 
 import { QuestionsHard } from "../../data/Questions";
+import {
+  useBtnNext,
+  useCurrentAnswer,
+  useQuestion,
+} from "../../store/globalState";
 
 import BtnCustom from "../../UI/BtnCustom";
 import { isRightOrNot } from "../../utils/isRightOrNot";
@@ -14,9 +19,14 @@ const Container = styled.View`
 const QuizHard = ({ navigation }: any) => {
   const { colors } = useContext(ThemeContext);
 
-  const [question, setQuestion] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState("");
-  const [btnNext, setBtnNext] = useState(colors.black);
+  const question = useQuestion((state) => state.question);
+  const setQuestion = useQuestion((state) => state.setQuestion);
+
+  const currentAnswer = useCurrentAnswer((state) => state.currentAnswer);
+  const setCurrentAnswer = useCurrentAnswer((state) => state.setCurrentAnswer);
+
+  const btnNext = useBtnNext((state) => state.currentBtnNext);
+  const setBtnNext = useBtnNext((state) => state.setBtnNext);
 
   const rightAnswer = QuestionsHard[question].answer === currentAnswer;
   const questionState = QuestionsHard[question];
@@ -32,6 +42,11 @@ const QuizHard = ({ navigation }: any) => {
   };
 
   useEffect(() => {
+    setQuestion(0);
+    setCurrentAnswer("");
+  }, []);
+
+  useEffect(() => {
     if (currentAnswer) {
       setBtnNext(colors.misc);
     } else {
@@ -43,7 +58,6 @@ const QuizHard = ({ navigation }: any) => {
     <Container>
       <QuizTeamplate
         flagImg={questionState.imgFlag}
-        currQuestion={question + 1}
         btnTip={questionState.tip}
         btnContainer={
           <>

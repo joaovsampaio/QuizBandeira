@@ -2,6 +2,7 @@ import { Alert, Image, ImageSourcePropType } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styled from "styled-components/native";
 import { ReactNode } from "react";
+import { useQuestion } from "../../store/globalState";
 
 const Container = styled.View`
   flex: 1;
@@ -45,20 +46,15 @@ type Props = {
   flagImg: ImageSourcePropType | undefined;
   btnTip: string;
   btnContainer: any;
-  currQuestion: ReactNode;
 };
 
-const QuizTeamplate = ({
-  flagImg,
-  btnContainer,
-  btnTip,
-  currQuestion,
-}: Props) => {
+const QuizTeamplate = ({ flagImg, btnContainer, btnTip }: Props) => {
+  const question = useQuestion((state) => state.question);
   return (
     <Container>
       <Wrapped>
         <QuizHeader>
-          <Title>Determine a Bandeira: {currQuestion}/5</Title>
+          <Title>Determine a Bandeira: {question + 1}/5</Title>
           <BtnTip
             onPress={() => Alert.alert("Dica!", `${btnTip}`)}
             style={({ pressed }) => [

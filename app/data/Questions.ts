@@ -99,7 +99,7 @@ export const QuestionsHard = [
     imgFlag: require("../assets/img_hard/bnd_hard_1.png"),
     optionA: "Indonésia",
     optionB: "Áustria",
-    optionC: "Polõnia",
+    optionC: "Polônia",
     optionD: "Peru",
     answer: "A",
     tip: "Abriga centenas de grupos étnicos que falam vários idiomas",
