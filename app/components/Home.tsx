@@ -1,5 +1,10 @@
 import { useContext } from "react";
 import styled, { ThemeContext } from "styled-components/native";
+import {
+  QuestionsEasy,
+  QuestionsHard,
+  QuestionsNormal,
+} from "../data/Questions";
 import BtnCustom from "../UI/BtnCustom";
 
 const Container = styled.View`
@@ -42,20 +47,32 @@ const Home = ({ navigation }: any) => {
       <DifficultyContainer>
         <DifficultyText>Escolha a dificuldade:</DifficultyText>
         <BtnCustom
-          onPress={() => navigation.navigate("QuizEasy")}
+          onPress={() =>
+            navigation.navigate("QuizTemplate", {
+              questionMode: QuestionsEasy,
+            })
+          }
           text="Fácil"
           txAlign="center"
           size={15}
         />
         <BtnCustom
-          onPress={() => navigation.navigate("QuizNormal")}
+          onPress={() =>
+            navigation.navigate("QuizTemplate", {
+              questionMode: QuestionsNormal,
+            })
+          }
           text="Médio"
           bgColor={colors.details}
           txAlign="center"
           size={15}
         />
         <BtnCustom
-          onPress={() => navigation.navigate("QuizHard")}
+          onPress={() =>
+            navigation.navigate("QuizTemplate", {
+              questionMode: QuestionsHard,
+            })
+          }
           text="Difícil"
           bgColor={colors.primary}
           txAlign="center"
