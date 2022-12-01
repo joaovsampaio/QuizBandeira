@@ -33,7 +33,7 @@ export const QuestionsEasy = [
     optionC: "Japão",
     optionD: "Hungria",
     answer: "C",
-    tip: "A capital, é conhecida por seus arranha-céus, lojas e pela cultura pop",
+    tip: "A capital é conhecida por seus arranha-céus, lojas e pela cultura pop",
   },
   {
     imgFlag: require("../assets/img_easy/bnd_easy_5.png"),

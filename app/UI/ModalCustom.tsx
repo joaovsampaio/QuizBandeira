@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Modal from "react-native-modal";
 import styled, { ThemeContext } from "styled-components/native";
+import { useQuestion } from "../store/globalState";
 import BtnCustom from "./BtnCustom";
 
 const Container = styled.View`
@@ -30,8 +31,24 @@ const TextModal = styled.Text`
   margin-bottom: 5px;
 `;
 
-const ModalCustom = ({ navigation }: any) => {
+const ContainerButton = styled.View`
+  flex-direction: row;
+`;
+
+const ModalCustom = ({ navigation, route }: any) => {
   const { colors } = useContext(ThemeContext);
+
+  const { questionMode, name } = route.params;
+
+  const setQuestion = useQuestion((state) => state.setQuestion);
+
+  const restartQuiz = () => {
+    navigation.navigate("QuizTemplate", {
+      questionMode: questionMode,
+      name: name,
+    });
+    setQuestion(0);
+  };
   return (
     <Container>
       <Modal
@@ -44,13 +61,24 @@ const ModalCustom = ({ navigation }: any) => {
         <ContainerModal>
           <TitleModal>Bandeira Errada</TitleModal>
           <TextModal>Tente usar uma dica!</TextModal>
-          <BtnCustom
-            text="Voltar ao Menu"
-            onPress={() => navigation.navigate("Home")}
-            txAlign="center"
-            bgColor={colors.misc}
-            size={10}
-          />
+          <ContainerButton>
+            <BtnCustom
+              text="Menu"
+              onPress={() => navigation.navigate("Home")}
+              txAlign="center"
+              bgColor={colors.misc}
+              size={10}
+              width={"40%"}
+            />
+            <BtnCustom
+              text="Recomeçar"
+              onPress={restartQuiz}
+              txAlign="center"
+              bgColor={colors.secondary}
+              size={10}
+              width={"40%"}
+            />
+          </ContainerButton>
         </ContainerModal>
       </Modal>
     </Container>

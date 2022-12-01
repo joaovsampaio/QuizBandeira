@@ -51,7 +51,7 @@ const StyledImage = styled(Image)`
 const QuizTeamplate = ({ route, navigation }: any) => {
   const { colors } = useContext(ThemeContext);
 
-  const { questionMode } = route.params;
+  const { questionMode, name } = route.params;
 
   const question = useQuestion((state) => state.question);
   const setQuestion = useQuestion((state) => state.setQuestion);
@@ -70,9 +70,14 @@ const QuizTeamplate = ({ route, navigation }: any) => {
       setQuestion(question + 1);
       setCurrentAnswer("");
     } else if (rightAnswer && question === 4) {
-      navigation.navigate("GameOver");
+      navigation.navigate("GameOver", {
+        name: name,
+      });
     } else {
-      navigation.navigate("ModalCustom");
+      navigation.navigate("ModalCustom", {
+        questionMode: questionMode,
+        name: name,
+      });
       setCurrentAnswer("");
     }
   };
@@ -97,11 +102,7 @@ const QuizTeamplate = ({ route, navigation }: any) => {
           <Title>Determine a Bandeira: {question + 1}/5</Title>
           <BtnTip
             onPress={() => Alert.alert("Dica!", `${questionState.tip}`)}
-            style={({ pressed }) => [
-              {
-                opacity: pressed ? 0.7 : 1,
-              },
-            ]}
+            style={({ pressed }) => [{ opacity: pressed ? 0.7 : 1 }]}
           >
             <Ionicons name="information" size={26} color="white" />
           </BtnTip>

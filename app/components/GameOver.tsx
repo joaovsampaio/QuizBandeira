@@ -12,10 +12,15 @@ const Container = styled.View`
 
 const Congratulations = styled.Text`
   font-size: 30px;
-  font-family: "RobotoBold";
+  font-family: "RobotoLight";
   text-align: center;
   color: ${({ theme }) => theme.colors.details};
   margin-bottom: 20px;
+`;
+
+const TextLevel = styled.Text`
+  font-family: "RobotoBold";
+  color: ${({ theme }) => theme.colors.title};
 `;
 
 const SubCongratulations = styled.Text`
@@ -25,8 +30,10 @@ const SubCongratulations = styled.Text`
   color: ${({ theme }) => theme.colors.reversebw};
 `;
 
-const GameOver = ({ navigation }: any) => {
+const GameOver = ({ navigation, route }: any) => {
   const { colors } = useContext(ThemeContext);
+
+  const { name } = route.params;
 
   useEffect(() => {
     function handleBackButton() {
@@ -43,7 +50,9 @@ const GameOver = ({ navigation }: any) => {
   }, [navigation]);
   return (
     <Container>
-      <Congratulations>Parabéns por concluir o desafio</Congratulations>
+      <Congratulations>
+        Parabéns por concluir o desafio no <TextLevel>{name}</TextLevel>
+      </Congratulations>
       <SubCongratulations>Espero que tenha aproveitado!</SubCongratulations>
       <BtnCustom
         text="Voltar ao menu"

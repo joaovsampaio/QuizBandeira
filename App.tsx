@@ -93,11 +93,7 @@ export default function App() {
           <Stack.Screen
             name="QuizTemplate"
             component={QuizTeamplate}
-            options={{
-              headerTitle: () => (
-                <Header HandleThemeChange={HandleThemeChange} />
-              ),
-            }}
+            options={({ route }: any) => ({ title: route.params.name })}
           />
           <Stack.Screen
             name="GameOver"

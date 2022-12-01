@@ -50,6 +50,7 @@ const Home = ({ navigation }: any) => {
           onPress={() =>
             navigation.navigate("QuizTemplate", {
               questionMode: QuestionsEasy,
+              name: "Nível Fácil",
             })
           }
           text="Fácil"
@@ -60,6 +61,7 @@ const Home = ({ navigation }: any) => {
           onPress={() =>
             navigation.navigate("QuizTemplate", {
               questionMode: QuestionsNormal,
+              name: "Nível Médio",
             })
           }
           text="Médio"
@@ -71,6 +73,7 @@ const Home = ({ navigation }: any) => {
           onPress={() =>
             navigation.navigate("QuizTemplate", {
               questionMode: QuestionsHard,
+              name: "Nível Difícil",
             })
           }
           text="Difícil"

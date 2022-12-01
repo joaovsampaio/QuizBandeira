@@ -19,7 +19,7 @@ type Props = {
   disabled?: boolean;
   bgColor?: string;
   size?: number;
-  width?: number;
+  width?: number | string;
   txAlign?: any;
 };
 
